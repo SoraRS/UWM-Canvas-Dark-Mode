@@ -2,31 +2,32 @@
 @name         UWM Canvas Dark
 @namespace    https://github.com/SoraRS/UWM-Canvas-Dark-Mode
 @author       Sora Grey
-@version      0.0.1
+@version      0.1.1
 @description  A personal dark theme for UW-Milwaukee Canvas.
 @license      Apache License 2.0
 ==/UserStyle== */
 
 @-moz-document url-prefix("https://uwmil.instructure.com/") {
   @media screen and (forced-colors: none) {
-    /* Canvas brandable CSS. React component colors are handled below. */
+    /* Surfaces move from canvas to panel to overlay. Control edges are stronger than dividers. */
     :root {
       color-scheme: dark;
-      --uwd-page: #18191b;
-      --uwd-surface: #202225;
-      --uwd-raised: #292b2f;
-      --uwd-hover: #30343a;
-      --uwd-selected: #283b49;
-      --uwd-rail: #141517;
-      --uwd-text: #eceef0;
-      --uwd-muted: #b7bdc4;
-      --uwd-line: #454a52;
-      --uwd-control: #84909e;
-      --uwd-link: #9acbf0;
-      --uwd-link-hover: #c3e2fa;
-      --uwd-focus: #b7defb;
-      --uwd-primary: #235675;
-      --uwd-primary-hover: #2c6385;
+      --uwd-page: #19191b;
+      --uwd-surface: #222225;
+      --uwd-raised: #2b2b30;
+      --uwd-field: #1b1b1e;
+      --uwd-hover: #33343a;
+      --uwd-selected: #303d49;
+      --uwd-rail: #151517;
+      --uwd-text: #eeedf0;
+      --uwd-muted: #bdbdc5;
+      --uwd-line: #484951;
+      --uwd-control: #8d929d;
+      --uwd-link: #a5cdec;
+      --uwd-link-hover: #d0e7fa;
+      --uwd-focus: #bfdcf3;
+      --uwd-primary: #285470;
+      --uwd-primary-hover: #326580;
       --uwd-on-primary: #fff;
       --uwd-positive: #9ad8b0;
       --uwd-positive-bg: #20372a;
@@ -34,9 +35,9 @@
       --uwd-warning-bg: #3d2c1f;
       --uwd-danger: #ffb4b7;
       --uwd-danger-bg: #45282e;
-      --uwd-info-bg: #233646;
+      --uwd-info-bg: #243440;
       --uwd-gold: #ffbd00;
-      --uwd-on-gold: #18191b;
+      --uwd-on-gold: #151517;
       --uwd-shadow: 0 8px 28px rgb(0 0 0 / 42%);
 
       --ic-brand-font-color-dark: var(--uwd-text) !important;
@@ -45,13 +46,13 @@
       --ic-link-color: var(--uwd-link) !important;
       --ic-link-color-darkened-10: var(--uwd-link-hover) !important;
       --ic-link-color-lightened-10: var(--uwd-link-hover) !important;
-      --ic-brand-primary: var(--uwd-link) !important;
+      --ic-brand-primary: var(--uwd-primary) !important;
       --ic-brand-primary-darkened-5: var(--uwd-primary-hover) !important;
       --ic-brand-primary-darkened-10: var(--uwd-primary-hover) !important;
       --ic-brand-primary-darkened-15: var(--uwd-primary) !important;
-      --ic-brand-primary-lightened-5: var(--uwd-link-hover) !important;
-      --ic-brand-primary-lightened-10: var(--uwd-link-hover) !important;
-      --ic-brand-primary-lightened-15: var(--uwd-link-hover) !important;
+      --ic-brand-primary-lightened-5: var(--uwd-primary-hover) !important;
+      --ic-brand-primary-lightened-10: var(--uwd-primary-hover) !important;
+      --ic-brand-primary-lightened-15: var(--uwd-primary-hover) !important;
       --ic-brand-button--primary-bgd: var(--uwd-primary) !important;
       --ic-brand-button--primary-bgd-darkened-5: var(--uwd-primary-hover) !important;
       --ic-brand-button--primary-bgd-darkened-15: var(--uwd-primary) !important;
@@ -66,10 +67,10 @@
       --ic-brand-global-nav-menu-item__text-color: var(--uwd-text) !important;
       --ic-brand-global-nav-menu-item__text-color--active: var(--uwd-text) !important;
       --ic-brand-global-nav-avatar-border: var(--uwd-control) !important;
-      --ic-brand-global-nav-menu-item__badge-bgd: var(--uwd-link) !important;
-      --ic-brand-global-nav-menu-item__badge-bgd--active: var(--uwd-link-hover) !important;
-      --ic-brand-global-nav-menu-item__badge-text: var(--uwd-page) !important;
-      --ic-brand-global-nav-menu-item__badge-text--active: var(--uwd-page) !important;
+      --ic-brand-global-nav-menu-item__badge-bgd: var(--uwd-info-bg) !important;
+      --ic-brand-global-nav-menu-item__badge-bgd--active: var(--uwd-selected) !important;
+      --ic-brand-global-nav-menu-item__badge-text: var(--uwd-link-hover) !important;
+      --ic-brand-global-nav-menu-item__badge-text--active: var(--uwd-link-hover) !important;
       --ic-brand-global-nav-logo-bgd: var(--uwd-gold) !important;
     }
 
@@ -96,7 +97,8 @@
     :is(a, button)[class*="-view--block-link"],
     :is(a, button)[class*="-view--inlineBlock-link"],
     .Button--link, .btn-link, .ig-title, .ic-item-row__content-link,
-    #breadcrumbs a, .ic-app-footer a {
+    #breadcrumbs a, .ic-app-footer a, .text-info, .context_module .icon-info,
+    .lock-icon.lock-icon-locked, .ef-main .lock-icon.lock-icon button.locked {
       color: var(--uwd-link) !important;
     }
 
@@ -105,11 +107,16 @@
       text-underline-offset: .15em;
     }
 
+    :is(.ig-title, .ic-item-row__content-link, .ToDoSidebarItem__Title a):is(:hover, :focus-visible) {
+      text-decoration: underline;
+      text-underline-offset: .15em;
+    }
+
     :is(a, button)[class*="-view-link"]:hover,
     :is(a, button)[class*="-view--block-link"]:hover,
     :is(a, button)[class*="-view--inlineBlock-link"]:hover,
     .Button--link:hover, .btn-link:hover, .ig-title:hover,
-    #breadcrumbs a:hover, .ic-app-footer a:hover {
+    #breadcrumbs a:hover, .ic-app-footer a:hover, a.text-info:hover {
       color: var(--uwd-link-hover) !important;
     }
 
@@ -118,9 +125,10 @@
       color: var(--uwd-page);
     }
 
-    :is(a[href], button, input, select, textarea, summary, iframe, [tabindex], [contenteditable]):focus-visible {
+    :is(a:where([href]), button, input, select, textarea, summary, iframe, [tabindex], [contenteditable]):focus-visible {
       outline: 2px solid var(--uwd-focus) !important;
       outline-offset: 2px !important;
+      scroll-margin-block: .5rem;
     }
 
     :is([role="option"], [role="menuitem"], [role="menuitemradio"], [role="menuitemcheckbox"]):focus-visible {
@@ -169,20 +177,28 @@
     #section-tabs a:hover, #section-tabs a:focus-visible {
       background-color: var(--uwd-hover) !important;
     }
+    #section-tabs a:focus-visible { outline-offset: -2px !important; }
     #skip_navigation_link {
       background: var(--uwd-primary) !important;
       color: var(--uwd-on-primary) !important;
       outline-offset: -4px !important;
     }
-    :is(.nav-badge, .ic-badge, .ic-DashboardCard__action-badge, .ic-unread-badge,
-        .ic-unread-badge__count, [class*="-inlineBlock-badge"]) {
-      background-color: var(--uwd-link) !important;
-      color: var(--uwd-page) !important;
-      border-color: var(--uwd-surface) !important;
+    :is(.menu-item__badge, .nav-badge, .ic-badge, .ic-DashboardCard__action-badge,
+        .ic-unread-badge, .ic-unread-badge__count, [class*="-inlineBlock-badge"]) {
+      background-color: var(--uwd-info-bg) !important;
+      color: var(--uwd-link-hover) !important;
+      border-color: var(--uwd-control) !important;
+    }
+    .ic-unread-badge .ic-unread-badge__count:not(.ic-unread-badge__total-count) {
+      background-color: var(--uwd-primary) !important;
+      color: var(--uwd-on-primary) !important;
     }
 
     /* Dashboard, course lists, modules, grades, and file chrome. */
-    .ic-Dashboard-header__layout { background-color: var(--uwd-page) !important; }
+    .ic-Dashboard-header__layout {
+      background-color: var(--uwd-page) !important;
+      border-color: var(--uwd-line) !important;
+    }
     :is(.PlannerHeader, .planner-day, .planner-item) {
       background-color: var(--uwd-page) !important;
       color: var(--uwd-text) !important;
@@ -193,9 +209,10 @@
     }
     .recent_activity > li { border-color: var(--uwd-line) !important; }
     .recent_activity .unread-count {
-      background-color: var(--uwd-link) !important;
-      color: var(--uwd-page) !important;
+      background-color: var(--uwd-info-bg) !important;
+      color: var(--uwd-link-hover) !important;
     }
+    .recent_activity .unread { background-color: var(--uwd-link) !important; }
     :is(.ic-DashboardCard, .ic-DashboardCard__header_content, .ic-DashboardCard__action-container,
         .ic-item-row, .ig-row, .stream_header, .stream-details, .stream-item,
         .recent-activity-header, .ic-announcement-row,
@@ -205,37 +222,62 @@
         .assignment-submission, .submission-details-frame,
         .quiz-header, .quiz-submission, .student-version .question,
         .ef-item-row, .ef-file-preview-header, .ef-file-preview-footer, .ef-folder-content,
-        .off-canvas-content, .ic-Table--striped tbody tr:nth-child(odd)) {
+        .off-canvas-content),
+    .ic-Table--striped tbody tr:nth-child(odd) {
       background-color: var(--uwd-surface) !important;
       color: var(--uwd-text) !important;
       border-color: var(--uwd-line) !important;
     }
     .ic-DashboardCard { box-shadow: 0 0 0 1px var(--uwd-line), 0 3px 9px rgb(0 0 0 / 30%) !important; }
-    .ic-DashboardCard__header-title { color: var(--uwd-link) !important; }
+    .ic-DashboardCard:focus-within { box-shadow: 0 0 0 1px var(--uwd-control) !important; }
+    .ic-DashboardCard__link {
+      --uwd-card-title: var(--uwd-link);
+    }
+    .ic-DashboardCard__link:is(:hover, :focus-visible) {
+      --uwd-card-title: var(--uwd-link-hover);
+    }
+    .ic-DashboardCard__header-title,
+    .ic-DashboardCard__header-title > span { color: var(--uwd-card-title, var(--uwd-link)) !important; }
     :is(.ic-DashboardCard__header-subtitle, .ic-DashboardCard__header-term, .ig-details,
         .ig-info, .muted, .text-muted, .secondary-text, .faded,
         .discussion-pubdate, .discussion-tododate, .module-item-estimated-duration,
-        .ef-item-row__column, .student_assignment .assignment-type) {
+        .ef-item-row__column, .student_assignment .assignment-type,
+        .ToDoSidebarItem__Info [class$="-inlineListItem"], .event-details__context),
+    #details .signature {
       color: var(--uwd-muted) !important;
     }
     :is(.ic-DashboardCard__action, .ig-type-icon, .ig-admin,
         .toggle_comments_link, #minical .fc-day-number, .header-bar h1) {
       color: var(--uwd-text) !important;
     }
-    :is(.ig-header, .item-group-condensed .ig-header, .ic-Table thead,
-        #grades_summary th, .student-version .question .header, .quiz-header .quiz-header-title,
-        .ef-header, .ef-search-header, .ef-item-row--header) {
+    :is(.ig-header, .ef-header, .ef-search-header, .ef-item-row--header),
+    .ic-Table thead, #grades_summary th, .student-version .question .header,
+    .quiz-header .quiz-header-title {
       background-color: var(--uwd-raised) !important;
       color: var(--uwd-text) !important;
       border-color: var(--uwd-line) !important;
     }
+    .ig-header :is(.ig-header-title .name, .ig-header-title .element_toggler),
+    body.assignments #details .header {
+      color: var(--uwd-text) !important;
+    }
     :is(.ig-row, .ic-item-row, .ef-item-row):is(:hover, :focus-within),
-    .ic-Table--hover-row tbody tr:hover, .stream_header:hover {
+    .ic-Table--hover-row tbody tr:hover,
+    .ic-Table--striped.ic-Table--hover-row tbody tr:hover, .stream_header:hover {
       background-color: var(--uwd-hover) !important;
     }
     :is(.ig-row, .ic-item-row, .ef-item-row)[aria-selected="true"] {
       background-color: var(--uwd-selected) !important;
+      border-inline-start-color: var(--uwd-link) !important;
     }
+    .ef-item-row.ef-item-selected { background-color: var(--uwd-selected) !important; }
+    .ef-item-row.ef-item-selected::before { background-color: var(--uwd-link) !important; }
+    .ef-main .activeDragTarget {
+      background-color: var(--uwd-selected) !important;
+      box-shadow: inset 0 0 0 2px var(--uwd-link) !important;
+    }
+    .ef-main .progress-bar__bar-container { border-color: var(--uwd-control) !important; }
+    .ef-main .progress-bar__bar { background-color: var(--uwd-link) !important; }
     :is(.ig-published .ig-publish-icon, .ig-published .icon-publish, .icon-published,
         .published-status, .module-item-status-icon .icon-check) {
       color: var(--uwd-positive) !important;
@@ -251,6 +293,22 @@
     #grades_summary tbody tr.selected-assignment td { background-color: var(--uwd-selected) !important; }
     #grades_summary :is(.group_total, .final_grade) td {
       background-color: var(--uwd-raised) !important;
+    }
+    body.grades table.summary :is(th, td) {
+      background-color: var(--uwd-surface) !important;
+      border-color: var(--uwd-line) !important;
+      color: var(--uwd-text) !important;
+    }
+    body.grades table.summary :is(thead, tfoot) :is(th, td) {
+      background-color: var(--uwd-raised) !important;
+    }
+    #grades_summary :is(.toggle_comments_link, .toggle_score_details_link, .toggle_rubric_assessments_link) {
+      background-color: var(--uwd-raised) !important;
+      border-color: var(--uwd-control) !important;
+      color: var(--uwd-text) !important;
+    }
+    #grades_summary :is(.toggle_comments_link, .toggle_score_details_link, .toggle_rubric_assessments_link):hover {
+      background-color: var(--uwd-hover) !important;
     }
     :is(#grades_summary, .submission-details) :is(.score, .grade, .assignment_score) {
       color: var(--uwd-text) !important;
@@ -282,18 +340,21 @@
       border-color: var(--uwd-control) !important;
       text-shadow: none !important;
     }
+    .Button--icon-action { color: var(--uwd-text) !important; }
     :is(.Button, .btn):not(.Button--link, .btn-link, .Button--icon-action, :disabled):hover,
     .ui-button:hover, .tox :is(.tox-tbtn, .tox-mbtn):hover {
       background-color: var(--uwd-hover) !important;
     }
     :is(.Button--primary, .btn-primary):not(.Button--link, .btn-link, .Button--icon-action),
-    .ui-button-primary, .tox .tox-button:not(.tox-button--secondary) {
+    .ui-button-primary, .tox .tox-button:not(.tox-button--secondary),
+    #use_agenda.accessibility-warning {
       background-color: var(--uwd-primary) !important;
       color: var(--uwd-on-primary) !important;
       border-color: var(--uwd-link) !important;
     }
     :is(.Button--primary, .btn-primary):not(.Button--link, .btn-link, .Button--icon-action, :disabled):hover,
-    .ui-button-primary:not(:disabled):hover, .tox .tox-button:not(.tox-button--secondary, :disabled):hover {
+    .ui-button-primary:not(:disabled):hover, .tox .tox-button:not(.tox-button--secondary, :disabled):hover,
+    #use_agenda.accessibility-warning:hover {
       background-color: var(--uwd-primary-hover) !important;
     }
     :is(.Button--danger, .btn-danger):not(.Button--link) {
@@ -314,7 +375,7 @@
     :is(input:not([type]), input[type="text"], input[type="search"], input[type="email"],
         input[type="url"], input[type="tel"], input[type="password"], input[type="number"],
         input[type="date"], input[type="datetime-local"], input[type="time"], select, textarea):not([class*="-textInput"]) {
-      background-color: var(--uwd-surface) !important;
+      background-color: var(--uwd-field) !important;
       color: var(--uwd-text) !important;
       border-color: var(--uwd-control) !important;
       caret-color: var(--uwd-text);
@@ -322,6 +383,26 @@
     :is(input, textarea)::placeholder { color: var(--uwd-muted) !important; opacity: 1 !important; }
     :is(input[type="checkbox"], input[type="radio"], progress) { accent-color: var(--uwd-link); }
     :is(input, textarea, select)[aria-invalid="true"] { border-color: var(--uwd-danger) !important; }
+    .ic-Search:focus-within .ic-Search-icon,
+    .ic-Radio.ic-Radio--icon-only input:checked ~ .ic-Label {
+      color: var(--uwd-link) !important;
+      border-color: var(--uwd-link) !important;
+    }
+    :is(.ic-Radio input[type="radio"], .ic-Form-control--checkbox input[type="checkbox"]):focus-visible
+      ~ .ic-Label::before {
+      outline: 2px solid var(--uwd-focus) !important;
+      outline-offset: 2px !important;
+    }
+    .ic-Super-toggle--ui-switch .ic-Super-toggle__option--LEFT,
+    .ic-Super-toggle--ui-switch .ic-Super-toggle__input:checked ~ .ic-Super-toggle__container .ic-Super-toggle__option--RIGHT {
+      color: var(--uwd-link) !important;
+    }
+    .ic-Super-toggle--ui-switch :is(.ic-Super-toggle__option--LEFT, .ic-Super-toggle__option--RIGHT) svg > * {
+      fill: currentColor !important;
+    }
+    .ic-Super-toggle__input:focus-visible ~ .ic-Super-toggle__container .ic-Super-toggle__switch::before {
+      border-color: var(--uwd-focus) !important;
+    }
     :is(.tox, .tox .tox-editor-container, .tox .tox-editor-header, .tox .tox-toolbar,
         .tox .tox-toolbar__primary, .tox .tox-toolbar__overflow, .tox .tox-menubar,
         .tox .tox-statusbar, .tox .tox-dialog, .tox .tox-menu,
@@ -405,8 +486,8 @@
     :is([class$="-view-heading"], [class*="-view-heading "],
         [class$="-formFieldLayout__label"], [class$="-formFieldGroup__description"],
         [class$="-checkboxFacade__label"], [class$="-radioInput__label"],
-        [class^="css-"][class$="-text"], [class^="css-"][class*="-text "], [class$="-truncateText"],
-        [class$="-inlineListItem__delimiter"], [class$="-breadcrumb__separator"]) {
+        :where([class^="css-"])[class$="-text"], :where([class^="css-"])[class*="-text "],
+        [class$="-truncateText"], [class$="-inlineListItem__delimiter"], [class$="-breadcrumb__separator"]) {
       color: inherit !important;
     }
     :is([class$="-view-heading"], [class$="-formFieldLayout__label"],
@@ -419,9 +500,12 @@
         [class$="-inlineListItem__delimiter"]) {
       color: var(--uwd-muted) !important;
     }
-    :is(.css-fd257k-text, .css-g5lcut-text, .css-17ufq55-text,
+    :is([data-testid="like-count"], [data-testid="author-pronouns"],
         [data-testid="todo-sidebar-item-title"], [class$="-avatar__initials"]) {
       color: var(--uwd-link) !important;
+    }
+    :is([class$="-toggleDetails__summaryText"], .recent-activity-text-container) {
+      color: var(--uwd-text) !important;
     }
     :is(.css-1g6bkdw-text, [data-testid="subscribeToggle"][aria-pressed="true"]),
     [data-testid="subscribeToggle"][aria-pressed="true"] [class$="-baseButton__content"] {
@@ -430,7 +514,7 @@
     :is([class$="-textInput__facade"], [class$="-textArea__textarea"],
         [class$="-selectable__input"], [class$="-checkboxFacade__facade"],
         [class$="-radioInput__facade"], [class$="-numberInput__facade"]) {
-      background-color: var(--uwd-surface) !important;
+      background-color: var(--uwd-field) !important;
       color: var(--uwd-text) !important;
       border-color: var(--uwd-control) !important;
     }
@@ -453,9 +537,9 @@
       color: var(--uwd-on-primary) !important;
     }
     [class$="-radioInput__input"]:checked ~ * [class$="-radioInput__facade"] {
-      background-color: var(--uwd-surface) !important;
+      background-color: var(--uwd-field) !important;
       border-color: var(--uwd-link) !important;
-      box-shadow: inset 0 0 0 3px var(--uwd-surface), inset 0 0 0 9px var(--uwd-link) !important;
+      box-shadow: inset 0 0 0 3px var(--uwd-field), inset 0 0 0 9px var(--uwd-link) !important;
     }
     :is([class$="-checkbox__input"], [class$="-radioInput__input"]):focus-visible
       ~ * :is([class$="-checkboxFacade__facade"], [class$="-radioInput__facade"]) {
@@ -475,7 +559,7 @@
       border-color: var(--uwd-button-edge) !important;
     }
     [class$="-baseButton__content"] :is([class*="-baseButton__"], svg) { color: inherit !important; }
-    :is(button, a, [role="button"]):hover > [class$="-baseButton__content"] {
+    :is(button, a, [role="button"]):not(:disabled, [aria-disabled="true"]):hover > [class$="-baseButton__content"] {
       background-color: var(--uwd-button-hover) !important;
     }
     :is(.css-1k0lrpe-baseButton__content, .css-1xid3yb-baseButton__content,
@@ -563,6 +647,9 @@
     div[style*="background-color"]:has(> [data-testid="conversation"] input:checked) {
       background-color: var(--uwd-selected) !important;
     }
+    [data-testid="conversationListItem-Item"]:has(input:checked):hover {
+      background-color: var(--uwd-selected) !important;
+    }
     [data-testid="conversationListItem-Item"]:is([aria-current="true"], [aria-selected="true"]),
     [data-testid="conversation"]:is([aria-current="true"], [aria-selected="true"]) [data-testid="conversationListItem-Item"] {
       background-color: var(--uwd-selected) !important;
@@ -583,6 +670,7 @@
       opacity: 1 !important;
     }
     #calendar-app .fc-today .fc-day-number { font-weight: 700; }
+    #minical .fc-toolbar { color: var(--uwd-text) !important; }
     #minical .fc-header {
       background: var(--uwd-raised) !important;
       border-color: var(--uwd-line) !important;
@@ -593,6 +681,12 @@
       background-color: var(--uwd-link) !important;
       color: var(--uwd-page) !important;
     }
+    #minical .slot-available,
+    :is(#other-calendar-actions-row, #other-calendars-context-list) .new-feature-pill {
+      background-color: var(--uwd-info-bg) !important;
+      color: var(--uwd-link) !important;
+      border-color: var(--uwd-link) !important;
+    }
     :is(.fc-event, .fc-day-grid-event, .fc-time-grid-event) {
       background-color: var(--uwd-raised) !important;
       color: var(--uwd-text) !important;
@@ -602,10 +696,14 @@
     }
     .fc-event :is(.fc-content, .fc-time, .fc-title) { color: inherit !important; }
     .fc-event:hover { background-color: var(--uwd-hover) !important; }
-    :is(.fc-popover, .fc-popover .fc-header, .event-details, #edit_event, #agenda-wrapper .agenda-event) {
+    :is(.fc-popover, .event-details), .fc-popover .fc-header,
+    #edit_event, #agenda-wrapper .agenda-event {
       background-color: var(--uwd-raised) !important;
       color: var(--uwd-text) !important;
       border-color: var(--uwd-line) !important;
+    }
+    .event-details :is(.event-details-content, .event-details-timestring, .date-range, time, .event-details__context) {
+      color: var(--uwd-muted) !important;
     }
     .context-list-toggle-box { outline: 1px solid var(--uwd-control); }
 
@@ -623,6 +721,8 @@
       --ic-link-color-darkened-10: #114a66;
       --ic-link-color-lightened-10: #114a66;
       --uwd-link: #176185;
+      --uwd-link-hover: #114a66;
+      --uwd-focus: #176185;
       color: #26282a;
     }
     :where(.user_content, .mce-content-body, .message-body) :is(code, kbd, samp, pre):not([style*="background" i]) {
