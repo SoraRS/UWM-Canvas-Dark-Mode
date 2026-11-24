@@ -1,0 +1,641 @@
+/* ==UserStyle==
+@name         UWM Canvas Dark
+@namespace    https://github.com/SoraRS/UWM-Canvas-Dark-Mode
+@author       Sora Grey
+@version      1.0.0
+@description  A personal dark theme for UW-Milwaukee Canvas.
+==/UserStyle== */
+
+@-moz-document url-prefix("https://uwmil.instructure.com/") {
+  @media screen and (forced-colors: none) {
+    /* Canvas brandable CSS. React component colors are handled below. */
+    :root {
+      color-scheme: dark;
+      --uwd-page: #18191b;
+      --uwd-surface: #202225;
+      --uwd-raised: #292b2f;
+      --uwd-hover: #30343a;
+      --uwd-selected: #283b49;
+      --uwd-rail: #141517;
+      --uwd-text: #eceef0;
+      --uwd-muted: #b7bdc4;
+      --uwd-line: #454a52;
+      --uwd-control: #84909e;
+      --uwd-link: #9acbf0;
+      --uwd-link-hover: #c3e2fa;
+      --uwd-focus: #b7defb;
+      --uwd-primary: #235675;
+      --uwd-primary-hover: #2c6385;
+      --uwd-on-primary: #fff;
+      --uwd-positive: #9ad8b0;
+      --uwd-positive-bg: #20372a;
+      --uwd-warning: #ffd09c;
+      --uwd-warning-bg: #3d2c1f;
+      --uwd-danger: #ffb4b7;
+      --uwd-danger-bg: #45282e;
+      --uwd-info-bg: #233646;
+      --uwd-gold: #ffbd00;
+      --uwd-on-gold: #18191b;
+      --uwd-shadow: 0 8px 28px rgb(0 0 0 / 42%);
+
+      --ic-brand-font-color-dark: var(--uwd-text) !important;
+      --ic-brand-font-color-dark-lightened-15: var(--uwd-muted) !important;
+      --ic-brand-font-color-dark-lightened-28: var(--uwd-muted) !important;
+      --ic-link-color: var(--uwd-link) !important;
+      --ic-link-color-darkened-10: var(--uwd-link-hover) !important;
+      --ic-link-color-lightened-10: var(--uwd-link-hover) !important;
+      --ic-brand-primary: var(--uwd-link) !important;
+      --ic-brand-primary-darkened-5: var(--uwd-primary-hover) !important;
+      --ic-brand-primary-darkened-10: var(--uwd-primary-hover) !important;
+      --ic-brand-primary-darkened-15: var(--uwd-primary) !important;
+      --ic-brand-primary-lightened-5: var(--uwd-link-hover) !important;
+      --ic-brand-primary-lightened-10: var(--uwd-link-hover) !important;
+      --ic-brand-primary-lightened-15: var(--uwd-link-hover) !important;
+      --ic-brand-button--primary-bgd: var(--uwd-primary) !important;
+      --ic-brand-button--primary-bgd-darkened-5: var(--uwd-primary-hover) !important;
+      --ic-brand-button--primary-bgd-darkened-15: var(--uwd-primary) !important;
+      --ic-brand-button--primary-text: var(--uwd-on-primary) !important;
+      --ic-brand-button--secondary-bgd: var(--uwd-raised) !important;
+      --ic-brand-button--secondary-bgd-darkened-5: var(--uwd-hover) !important;
+      --ic-brand-button--secondary-bgd-darkened-15: var(--uwd-hover) !important;
+      --ic-brand-button--secondary-text: var(--uwd-text) !important;
+      --ic-brand-global-nav-bgd: var(--uwd-rail) !important;
+      --ic-brand-global-nav-ic-icon-svg-fill: var(--uwd-muted) !important;
+      --ic-brand-global-nav-ic-icon-svg-fill--active: var(--uwd-text) !important;
+      --ic-brand-global-nav-menu-item__text-color: var(--uwd-text) !important;
+      --ic-brand-global-nav-menu-item__text-color--active: var(--uwd-text) !important;
+      --ic-brand-global-nav-avatar-border: var(--uwd-control) !important;
+      --ic-brand-global-nav-menu-item__badge-bgd: var(--uwd-link) !important;
+      --ic-brand-global-nav-menu-item__badge-bgd--active: var(--uwd-link-hover) !important;
+      --ic-brand-global-nav-menu-item__badge-text: var(--uwd-page) !important;
+      --ic-brand-global-nav-menu-item__badge-text--active: var(--uwd-page) !important;
+      --ic-brand-global-nav-logo-bgd: var(--uwd-gold) !important;
+    }
+
+    html, body, #wrapper, #main, #not_right_side, #content,
+    #left-side, #right-side, #breadcrumbs, .header-bar,
+    .item-group-container, #calendar-list-holder, #other-calendars-list-holder,
+    .module-sequence-footer .module-sequence-footer-content {
+      background-color: var(--uwd-page) !important;
+      color: var(--uwd-text) !important;
+    }
+
+    #breadcrumbs, .header-bar, .ic-app-nav-toggle-and-crumbs,
+    .ic-app-footer, .module-sequence-footer-content,
+    :is(#right-side, .ic-sidebar) :is(h2, h3, hr),
+    :where(.user_content, .mce-content-body) hr {
+      border-color: var(--uwd-line) !important;
+    }
+
+    :where(a[href]) {
+      color: var(--uwd-link);
+    }
+
+    :is(a, button)[class*="-view-link"],
+    :is(a, button)[class*="-view--block-link"],
+    :is(a, button)[class*="-view--inlineBlock-link"],
+    .Button--link, .btn-link, .ig-title, .ic-item-row__content-link,
+    #breadcrumbs a, .ic-app-footer a {
+      color: var(--uwd-link) !important;
+    }
+
+    :is(.user_content, .mce-content-body, .message-body) a[href]:not([class*="Button"], [class*="btn"]) {
+      text-decoration: underline;
+      text-underline-offset: .15em;
+    }
+
+    :is(a, button)[class*="-view-link"]:hover,
+    :is(a, button)[class*="-view--block-link"]:hover,
+    :is(a, button)[class*="-view--inlineBlock-link"]:hover,
+    .Button--link:hover, .btn-link:hover, .ig-title:hover,
+    #breadcrumbs a:hover, .ic-app-footer a:hover {
+      color: var(--uwd-link-hover) !important;
+    }
+
+    ::selection {
+      background: var(--uwd-link);
+      color: var(--uwd-page);
+    }
+
+    :is(a[href], button, input, select, textarea, summary, iframe, [tabindex], [contenteditable]):focus-visible {
+      outline: 2px solid var(--uwd-focus) !important;
+      outline-offset: 2px !important;
+    }
+
+    :is([role="option"], [role="menuitem"], [role="menuitemradio"], [role="menuitemcheckbox"]):focus-visible {
+      outline-offset: -3px !important;
+    }
+
+    /* Global and course navigation. Keep the native mark and active layout. */
+    .ic-app-header__logomark-container { color: var(--uwd-on-gold) !important; }
+    .ic-app-header__menu-list-link,
+    .ic-app-header__menu-list-link .menu-item__text { color: var(--uwd-text) !important; }
+    .ic-app-header__menu-list-link:hover,
+    .ic-app-header__menu-list-link[aria-expanded="true"] {
+      background-color: var(--uwd-hover) !important;
+    }
+    .ic-app-header__menu-list-item--active .ic-app-header__menu-list-link,
+    .ic-app-header__menu-list-link[aria-current="page"] {
+      background-color: var(--uwd-raised) !important;
+    }
+    :is(.ic-app-header__menu-list-item--active .ic-app-header__menu-list-link,
+        .ic-app-header__menu-list-link[aria-current="page"])::before {
+      content: "";
+      position: absolute;
+      inset-block: 0;
+      inset-inline-start: 0;
+      inline-size: 3px;
+      background-color: var(--uwd-gold);
+      pointer-events: none;
+    }
+    .ic-app-header__menu-list-link:focus-visible { outline-offset: -4px !important; }
+    .ic-app-header__logomark:focus-visible {
+      outline-color: var(--uwd-on-gold) !important;
+      outline-offset: -4px !important;
+    }
+    :is(.ic-app-header__secondary-menu, .ic-app-header__secondary-menu-container,
+        .tray-with-space-for-global-nav, .ic-NavMenu, .mobile-header) {
+      background-color: var(--uwd-rail) !important;
+      color: var(--uwd-text) !important;
+      border-color: var(--uwd-line) !important;
+    }
+    #section-tabs a { color: var(--uwd-link) !important; }
+    #section-tabs a.active, #section-tabs a[aria-current="page"] {
+      border-color: var(--uwd-gold) !important;
+      color: var(--uwd-text) !important;
+      font-weight: 700;
+    }
+    #section-tabs a:hover, #section-tabs a:focus-visible {
+      background-color: var(--uwd-hover) !important;
+    }
+    #skip_navigation_link {
+      background: var(--uwd-primary) !important;
+      color: var(--uwd-on-primary) !important;
+      outline-offset: -4px !important;
+    }
+    :is(.nav-badge, .ic-badge, .ic-DashboardCard__action-badge, .ic-unread-badge,
+        .ic-unread-badge__count, [class*="-inlineBlock-badge"]) {
+      background-color: var(--uwd-link) !important;
+      color: var(--uwd-page) !important;
+      border-color: var(--uwd-surface) !important;
+    }
+
+    /* Dashboard, course lists, modules, grades, and file chrome. */
+    .ic-Dashboard-header__layout { background-color: var(--uwd-page) !important; }
+    :is(.PlannerHeader, .planner-day, .planner-item) {
+      background-color: var(--uwd-page) !important;
+      color: var(--uwd-text) !important;
+      border-color: var(--uwd-line) !important;
+    }
+    :is([data-testid="today-date"], [data-testid="not-today"], [data-testid="feedback-comment"]) {
+      color: var(--uwd-muted) !important;
+    }
+    .recent_activity > li { border-color: var(--uwd-line) !important; }
+    .recent_activity .unread-count {
+      background-color: var(--uwd-link) !important;
+      color: var(--uwd-page) !important;
+    }
+    :is(.ic-DashboardCard, .ic-DashboardCard__header_content, .ic-DashboardCard__action-container,
+        .ic-item-row, .ig-row, .stream_header, .stream-details, .stream-item,
+        .recent-activity-header, .ic-announcement-row,
+        .pinned-discussions-v2__wrapper, .unpinned-discussions-v2__wrapper,
+        .closed-for-comments-discussions-v2__wrapper, .discussions-v2__container-image,
+        .assignment-title, .assignment-student-header, .assignment-student-footer,
+        .assignment-submission, .submission-details-frame,
+        .quiz-header, .quiz-submission, .student-version .question,
+        .ef-item-row, .ef-file-preview-header, .ef-file-preview-footer, .ef-folder-content,
+        .off-canvas-content, .ic-Table--striped tbody tr:nth-child(odd)) {
+      background-color: var(--uwd-surface) !important;
+      color: var(--uwd-text) !important;
+      border-color: var(--uwd-line) !important;
+    }
+    .ic-DashboardCard { box-shadow: 0 0 0 1px var(--uwd-line), 0 3px 9px rgb(0 0 0 / 30%) !important; }
+    .ic-DashboardCard__header-title { color: var(--uwd-link) !important; }
+    :is(.ic-DashboardCard__header-subtitle, .ic-DashboardCard__header-term, .ig-details,
+        .ig-info, .muted, .text-muted, .secondary-text, .faded,
+        .discussion-pubdate, .discussion-tododate, .module-item-estimated-duration,
+        .ef-item-row__column, .student_assignment .assignment-type) {
+      color: var(--uwd-muted) !important;
+    }
+    :is(.ic-DashboardCard__action, .ig-type-icon, .ig-admin,
+        .toggle_comments_link, #minical .fc-day-number, .header-bar h1) {
+      color: var(--uwd-text) !important;
+    }
+    :is(.ig-header, .item-group-condensed .ig-header, .ic-Table thead,
+        #grades_summary th, .student-version .question .header, .quiz-header .quiz-header-title,
+        .ef-header, .ef-search-header, .ef-item-row--header) {
+      background-color: var(--uwd-raised) !important;
+      color: var(--uwd-text) !important;
+      border-color: var(--uwd-line) !important;
+    }
+    :is(.ig-row, .ic-item-row, .ef-item-row):is(:hover, :focus-within),
+    .ic-Table--hover-row tbody tr:hover, .stream_header:hover {
+      background-color: var(--uwd-hover) !important;
+    }
+    :is(.ig-row, .ic-item-row, .ef-item-row)[aria-selected="true"] {
+      background-color: var(--uwd-selected) !important;
+    }
+    :is(.ig-published .ig-publish-icon, .ig-published .icon-publish, .icon-published,
+        .published-status, .module-item-status-icon .icon-check) {
+      color: var(--uwd-positive) !important;
+    }
+    :is(.ic-Table, #grades_summary, .summary, .student_assignment, .assignment_group) :is(td, th),
+    :is(.ig-list, .ig-row, .ic-item-row, .context_module, .ic-DashboardCard__action-container,
+        .assignment-student-header, .discussion-section, .ef-header, .ef-item-row) {
+      border-color: var(--uwd-line) !important;
+    }
+    #grades_summary :is(td, th) { color: var(--uwd-text) !important; }
+    #grades_summary td { background-color: var(--uwd-surface) !important; }
+    #grades_summary tbody tr:hover td { background-color: var(--uwd-hover) !important; }
+    #grades_summary tbody tr.selected-assignment td { background-color: var(--uwd-selected) !important; }
+    #grades_summary :is(.group_total, .final_grade) td {
+      background-color: var(--uwd-raised) !important;
+    }
+    :is(#grades_summary, .submission-details) :is(.score, .grade, .assignment_score) {
+      color: var(--uwd-text) !important;
+    }
+    :is(.rubric_container, .rubric_table, .rubric_title, .rubric .criterion, .rubric .rating,
+        .submission-details, .comments, .comment, .quiz-submission, .question .answers) {
+      background-color: var(--uwd-surface) !important;
+      color: var(--uwd-text) !important;
+      border-color: var(--uwd-line) !important;
+    }
+    :is(.ef-file-preview-information-container, .ef-file-preview-header-filename) {
+      color: var(--uwd-text) !important;
+    }
+    .ef-file-preview-button {
+      background-color: var(--uwd-raised) !important;
+      border-color: var(--uwd-control) !important;
+      color: var(--uwd-text) !important;
+    }
+    .ef-file-preview-button:hover,
+    .ef-file-preview-button--active { background-color: var(--uwd-selected) !important; }
+
+    /* Classic Canvas controls and content-editor chrome. */
+    :is(.Button, .btn):not(.Button--link, .btn-link, .Button--icon-action),
+    .ui-button, .ui-dialog-titlebar-close, .ui-datepicker button,
+    .tox .tox-tbtn, .tox .tox-mbtn {
+      background-color: var(--uwd-raised) !important;
+      background-image: none !important;
+      color: var(--uwd-text) !important;
+      border-color: var(--uwd-control) !important;
+      text-shadow: none !important;
+    }
+    :is(.Button, .btn):not(.Button--link, .btn-link, .Button--icon-action, :disabled):hover,
+    .ui-button:hover, .tox :is(.tox-tbtn, .tox-mbtn):hover {
+      background-color: var(--uwd-hover) !important;
+    }
+    :is(.Button--primary, .btn-primary):not(.Button--link, .btn-link, .Button--icon-action),
+    .ui-button-primary, .tox .tox-button:not(.tox-button--secondary) {
+      background-color: var(--uwd-primary) !important;
+      color: var(--uwd-on-primary) !important;
+      border-color: var(--uwd-link) !important;
+    }
+    :is(.Button--primary, .btn-primary):not(.Button--link, .btn-link, .Button--icon-action, :disabled):hover,
+    .ui-button-primary:not(:disabled):hover, .tox .tox-button:not(.tox-button--secondary, :disabled):hover {
+      background-color: var(--uwd-primary-hover) !important;
+    }
+    :is(.Button--danger, .btn-danger):not(.Button--link) {
+      background-color: var(--uwd-danger-bg) !important;
+      color: var(--uwd-danger) !important;
+      border-color: var(--uwd-danger) !important;
+    }
+    :is(.Button--success, .btn-success):not(.Button--link) {
+      background-color: var(--uwd-positive-bg) !important;
+      color: var(--uwd-positive) !important;
+      border-color: var(--uwd-positive) !important;
+    }
+    :is(.Button, .btn, .ui-button):is(.active, [aria-pressed="true"]):not(.Button--link, .btn-link) {
+      background-color: var(--uwd-selected) !important;
+      border-color: var(--uwd-link) !important;
+      color: var(--uwd-text) !important;
+    }
+    :is(input:not([type]), input[type="text"], input[type="search"], input[type="email"],
+        input[type="url"], input[type="tel"], input[type="password"], input[type="number"],
+        input[type="date"], input[type="datetime-local"], input[type="time"], select, textarea):not([class*="-textInput"]) {
+      background-color: var(--uwd-surface) !important;
+      color: var(--uwd-text) !important;
+      border-color: var(--uwd-control) !important;
+      caret-color: var(--uwd-text);
+    }
+    :is(input, textarea)::placeholder { color: var(--uwd-muted) !important; opacity: 1 !important; }
+    :is(input[type="checkbox"], input[type="radio"], progress) { accent-color: var(--uwd-link); }
+    :is(input, textarea, select)[aria-invalid="true"] { border-color: var(--uwd-danger) !important; }
+    :is(.tox, .tox .tox-editor-container, .tox .tox-editor-header, .tox .tox-toolbar,
+        .tox .tox-toolbar__primary, .tox .tox-toolbar__overflow, .tox .tox-menubar,
+        .tox .tox-statusbar, .tox .tox-dialog, .tox .tox-menu,
+        .tox .tox-dialog__header, .tox .tox-dialog__footer,
+        .tox .tox-collection__item, .tox .tox-button--secondary) {
+      background-color: var(--uwd-surface) !important;
+      background-image: none !important;
+      color: var(--uwd-text) !important;
+      border-color: var(--uwd-line) !important;
+    }
+    .tox :is(.tox-tbtn, .tox-mbtn, .tox-collection__item) svg { fill: currentColor; }
+    .tox :is(.tox-tbtn--enabled, .tox-mbtn--active, .tox-collection__item--active) {
+      background-color: var(--uwd-selected) !important;
+      color: var(--uwd-text) !important;
+    }
+    .tox :is(.tox-statusbar__path-item, .tox-statusbar__wordcount, .tox-label) {
+      color: var(--uwd-muted) !important;
+    }
+    .tox-edit-area__iframe { background-color: var(--uwd-surface); }
+    .mce-content-body { color: var(--uwd-text); }
+
+    /* Legacy dialogs, menus, tabs, and feedback. */
+    :is(.ui-dialog, .ui-dialog-content, .ui-dialog-titlebar, .ui-dialog-buttonpane,
+        .ui-widget-content, .ui-datepicker, .ui-menu, .ui-autocomplete,
+        .ui-tabs .ui-tabs-panel, .dropdown-menu, .popout, .popover,
+        .ui-tooltip, .tooltip .tooltip_text, .ic-flash,
+        .ic-Action-header, .element_toggler .icon-mini-arrow-down) {
+      background-color: var(--uwd-raised) !important;
+      color: var(--uwd-text) !important;
+      border-color: var(--uwd-line) !important;
+    }
+    :is(.ui-dialog, .dropdown-menu, .popover, .ui-tooltip) { box-shadow: var(--uwd-shadow); }
+    .ui-widget-overlay { background: rgb(0 0 0 / 68%) !important; opacity: 1 !important; }
+    :is(.dropdown-menu li > a, .ui-menu-item a, .ui-datepicker a,
+        .ui-tabs .ui-tabs-nav li a, .ui-datepicker .ui-state-default) {
+      background-color: transparent !important;
+      color: var(--uwd-text) !important;
+      text-shadow: none !important;
+    }
+    :is(.dropdown-menu li > a:hover, .ui-menu-item a:hover, .ui-menu .ui-state-focus,
+        .ui-menu .ui-state-active, .ui-datepicker .ui-state-hover,
+        .ui-tabs .ui-tabs-nav li.ui-tabs-active a) {
+      background-color: var(--uwd-selected) !important;
+      color: var(--uwd-text) !important;
+    }
+    :is(.ui-tabs .ui-tabs-nav, .ui-tabs .ui-tabs-nav li, .ui-datepicker .ui-widget-header, .ui-state-default) {
+      background-color: var(--uwd-surface) !important;
+      background-image: none !important;
+      border-color: var(--uwd-line) !important;
+      color: var(--uwd-text) !important;
+    }
+    :is(.alert, .ic-notification) {
+      background-color: var(--uwd-raised) !important;
+      color: var(--uwd-text) !important;
+      border-color: var(--uwd-control) !important;
+      text-shadow: none !important;
+    }
+    :is(.alert-info, .ic-flash-info) {
+      background-color: var(--uwd-info-bg) !important;
+      color: var(--uwd-link-hover) !important;
+      border-color: var(--uwd-link) !important;
+    }
+    :is(.alert-success, .ic-flash-success) {
+      background-color: var(--uwd-positive-bg) !important;
+      color: var(--uwd-positive) !important;
+      border-color: var(--uwd-positive) !important;
+    }
+    :is(.alert-warning, .ic-flash-warning) {
+      background-color: var(--uwd-warning-bg) !important;
+      color: var(--uwd-warning) !important;
+      border-color: var(--uwd-warning) !important;
+    }
+    :is(.alert-error, .alert-danger, .ic-flash-error, .error_box) {
+      background-color: var(--uwd-danger-bg) !important;
+      color: var(--uwd-danger) !important;
+      border-color: var(--uwd-danger) !important;
+    }
+    .ic-flash-info .ic-flash__icon { background-color: var(--uwd-primary) !important; }
+
+    /* InstUI emits hashed classes. The component suffix describes the slot. */
+    :is([class$="-view-heading"], [class*="-view-heading "],
+        [class$="-formFieldLayout__label"], [class$="-formFieldGroup__description"],
+        [class$="-checkboxFacade__label"], [class$="-radioInput__label"],
+        [class^="css-"][class$="-text"], [class^="css-"][class*="-text "], [class$="-truncateText"],
+        [class$="-inlineListItem__delimiter"], [class$="-breadcrumb__separator"]) {
+      color: inherit !important;
+    }
+    :is([class$="-view-heading"], [class$="-formFieldLayout__label"],
+        [class$="-formFieldGroup__description"], [class$="-checkboxFacade__label"],
+        [class$="-radioInput__label"]):not(:is(.user_content, .mce-content-body) *) {
+      color: var(--uwd-text) !important;
+    }
+    :is(.css-79wf76-text, .css-itfdza-text, .css-3tr3ne-text, .css-1r7qc0o-text,
+        [data-testid="last-message-content"], [data-testid="todo-sidebar-item-info"],
+        [class$="-inlineListItem__delimiter"]) {
+      color: var(--uwd-muted) !important;
+    }
+    :is(.css-fd257k-text, .css-g5lcut-text, .css-17ufq55-text,
+        [data-testid="todo-sidebar-item-title"], [class$="-avatar__initials"]) {
+      color: var(--uwd-link) !important;
+    }
+    :is(.css-1g6bkdw-text, [data-testid="subscribeToggle"][aria-pressed="true"]),
+    [data-testid="subscribeToggle"][aria-pressed="true"] [class$="-baseButton__content"] {
+      color: var(--uwd-positive) !important;
+    }
+    :is([class$="-textInput__facade"], [class$="-textArea__textarea"],
+        [class$="-selectable__input"], [class$="-checkboxFacade__facade"],
+        [class$="-radioInput__facade"], [class$="-numberInput__facade"]) {
+      background-color: var(--uwd-surface) !important;
+      color: var(--uwd-text) !important;
+      border-color: var(--uwd-control) !important;
+    }
+    input[class*="-textInput"] {
+      color: var(--uwd-text) !important;
+      caret-color: var(--uwd-text);
+    }
+    :is([class$="-textInput__afterElement"], [class$="-textInput__beforeElement"],
+        [class$="-select__icon"], [class$="-textArea__characterCount"]) {
+      color: var(--uwd-muted) !important;
+    }
+    :is([class$="-textInput__facade"], [class$="-numberInput__facade"]):has(:focus-visible) {
+      outline: 2px solid var(--uwd-focus) !important;
+      outline-offset: 2px;
+    }
+    [class$="-checkbox__input"]:checked ~ * [class$="-checkboxFacade__facade"],
+    [class$="-checkbox__input"]:indeterminate ~ * [class$="-checkboxFacade__facade"] {
+      background-color: var(--uwd-primary) !important;
+      border-color: var(--uwd-link) !important;
+      color: var(--uwd-on-primary) !important;
+    }
+    [class$="-radioInput__input"]:checked ~ * [class$="-radioInput__facade"] {
+      background-color: var(--uwd-surface) !important;
+      border-color: var(--uwd-link) !important;
+      box-shadow: inset 0 0 0 3px var(--uwd-surface), inset 0 0 0 9px var(--uwd-link) !important;
+    }
+    :is([class$="-checkbox__input"], [class$="-radioInput__input"]):focus-visible
+      ~ * :is([class$="-checkboxFacade__facade"], [class$="-radioInput__facade"]) {
+      outline: 2px solid var(--uwd-focus) !important;
+      outline-offset: 2px;
+    }
+    [class$="-textInput__facade"]:has([aria-invalid="true"]) { border-color: var(--uwd-danger) !important; }
+    [class*="-formFieldMessage"][class$="-text"] { color: var(--uwd-danger) !important; }
+
+    [class$="-baseButton__content"] {
+      --uwd-button-bg: var(--uwd-raised);
+      --uwd-button-fg: var(--uwd-text);
+      --uwd-button-edge: var(--uwd-control);
+      --uwd-button-hover: var(--uwd-hover);
+      background-color: var(--uwd-button-bg) !important;
+      color: var(--uwd-button-fg) !important;
+      border-color: var(--uwd-button-edge) !important;
+    }
+    [class$="-baseButton__content"] :is([class*="-baseButton__"], svg) { color: inherit !important; }
+    :is(button, a, [role="button"]):hover > [class$="-baseButton__content"] {
+      background-color: var(--uwd-button-hover) !important;
+    }
+    :is(.css-1k0lrpe-baseButton__content, .css-1xid3yb-baseButton__content,
+        :is(button, a)[data-testid^="compose"] > [class$="-baseButton__content"],
+        [data-testid="send-button"] > [class$="-baseButton__content"],
+        button[type="submit"] > [class$="-baseButton__content"]) {
+      --uwd-button-bg: var(--uwd-primary);
+      --uwd-button-fg: var(--uwd-on-primary);
+      --uwd-button-edge: var(--uwd-link);
+      --uwd-button-hover: var(--uwd-primary-hover);
+    }
+    :is(.css-v4g620-baseButton__content, .css-1e1ui47-baseButton__content,
+        .css-11128jn-baseButton__content, .css-1b15fu7-baseButton__content,
+        :is([data-testid="read-badge"], [data-testid="unread-badge"]) > [class$="-baseButton__content"],
+        [class$="-closeButton"] [class$="-baseButton__content"]) {
+      --uwd-button-bg: transparent;
+      --uwd-button-edge: transparent;
+    }
+    :is(.css-11128jn-baseButton__content,
+        :is([data-testid="read-badge"], [data-testid="unread-badge"]) > [class$="-baseButton__content"]) {
+      --uwd-button-fg: var(--uwd-link);
+    }
+    .css-1b15fu7-baseButton__content { --uwd-button-fg: var(--uwd-positive); }
+    :is(button, a)[aria-pressed="true"]:not([data-testid="read-badge"], [data-testid="unread-badge"]) >
+      [class$="-baseButton__content"] {
+      --uwd-button-bg: var(--uwd-selected);
+      --uwd-button-edge: var(--uwd-link);
+    }
+
+    :is([class$="-contextView__content"], [class^="css-"][class$="-menu"], [class$="-menuItemGroup__label"],
+        [class$="-menuItem"], [class$="-modal"], [class$="-modalHeader"], [class$="-modalBody"],
+        [class$="-modalFooter"], [class$="-tray"], [class*="-tray transition--"], [class$="-tray__content"],
+        [class$="-popover__content"], [class$="-tooltip__content"], [class$="-select__list"],
+        .css-ck5g9-view--block, .css-cpxhum-view--inlineBlock,
+        [data-testid="message-list-actions-address-book-input"] > [class$="-view--inlineBlock"]) {
+      background-color: var(--uwd-raised) !important;
+      color: var(--uwd-text) !important;
+      border-color: var(--uwd-line) !important;
+    }
+    :is([class$="-contextView__content"], [class$="-modal"], [class$="-tray__content"]) {
+      box-shadow: var(--uwd-shadow) !important;
+    }
+    [class$="-contextView__arrow"]::before {
+      background-color: var(--uwd-raised) !important;
+      border-color: var(--uwd-line) !important;
+    }
+    :is([class$="-menuItemSeparator"], [class$="-menuItem__separator"]) {
+      background-color: var(--uwd-line) !important;
+    }
+    :is([role="menuitem"], [role="menuitemradio"], [role="menuitemcheckbox"], [role="option"])
+      :is([class$="-menuItem__label"], [class$="-option__label"]) { color: inherit !important; }
+    :is([role="menuitem"], [role="menuitemradio"], [role="menuitemcheckbox"], [role="option"]):is(:hover, :focus-visible),
+    :is([role="option"][aria-selected="true"], [role="menuitemradio"][aria-checked="true"],
+        [role="menuitemcheckbox"][aria-checked="true"]) {
+      background-color: var(--uwd-selected) !important;
+      color: var(--uwd-text) !important;
+    }
+    [class$="-pill"] {
+      --uwd-pill: var(--uwd-muted);
+      background-color: var(--uwd-raised) !important;
+      border-color: var(--uwd-pill) !important;
+      color: var(--uwd-pill) !important;
+    }
+    [class$="-pill__text"] { color: inherit !important; }
+    .css-1nbn9fw-pill { --uwd-pill: var(--uwd-link); }
+    .css-12pzab8-pill { --uwd-pill: var(--uwd-danger); }
+    [class$="-inlineBlock-avatar"] {
+      background-color: var(--uwd-raised) !important;
+      border-color: var(--uwd-control) !important;
+    }
+    :is([class$="-table__caption"], [class$="-table__header"], [class$="-table__cell"],
+        [class$="-table__colHeader"], [class$="-table__rowHeader"]) {
+      border-color: var(--uwd-line) !important;
+      color: var(--uwd-text) !important;
+    }
+    [class$="-overlay"], [class$="-overlay__mask"] { border-color: var(--uwd-line) !important; }
+
+    /* Inbox rows retain independent hover, selected, and read controls. */
+    [data-testid="conversation"] { border-color: var(--uwd-line) !important; }
+    [data-testid="conversationListItem-Item"] {
+      color: var(--uwd-text) !important;
+      border-color: var(--uwd-line) !important;
+    }
+    [data-testid="conversationListItem-Item"]:hover { background-color: var(--uwd-hover) !important; }
+    div[style*="background-color"]:has(> [data-testid="conversation"] input:checked) {
+      background-color: var(--uwd-selected) !important;
+    }
+    [data-testid="conversationListItem-Item"]:is([aria-current="true"], [aria-selected="true"]),
+    [data-testid="conversation"]:is([aria-current="true"], [aria-selected="true"]) [data-testid="conversationListItem-Item"] {
+      background-color: var(--uwd-selected) !important;
+    }
+
+    /* Calendar events retain their course color in the direction-leading edge. */
+    :is(#calendar-app, #minical) :is(.fc-body, .fc-head-container, .fc-widget-content, .fc-widget-header, .fc-day-top),
+    #minical {
+      background-color: transparent !important;
+      background-image: none !important;
+      color: var(--uwd-text) !important;
+      border-color: var(--uwd-line) !important;
+      text-shadow: none !important;
+    }
+    :is(#calendar-app, #minical) :is(.fc-today, .fc-highlight) { background-color: var(--uwd-selected) !important; }
+    :is(#calendar-app, #minical) .fc-other-month {
+      color: var(--uwd-muted) !important;
+      opacity: 1 !important;
+    }
+    #calendar-app .fc-today .fc-day-number { font-weight: 700; }
+    #minical .fc-header {
+      background: var(--uwd-raised) !important;
+      border-color: var(--uwd-line) !important;
+      color: var(--uwd-text) !important;
+      text-shadow: none !important;
+    }
+    #minical .fc-today .day-number-text {
+      background-color: var(--uwd-link) !important;
+      color: var(--uwd-page) !important;
+    }
+    :is(.fc-event, .fc-day-grid-event, .fc-time-grid-event) {
+      background-color: var(--uwd-raised) !important;
+      color: var(--uwd-text) !important;
+      border-block-color: var(--uwd-line) !important;
+      border-inline-end-color: var(--uwd-line) !important;
+      border-inline-start-width: 3px !important;
+    }
+    .fc-event :is(.fc-content, .fc-time, .fc-title) { color: inherit !important; }
+    .fc-event:hover { background-color: var(--uwd-hover) !important; }
+    :is(.fc-popover, .fc-popover .fc-header, .event-details, #edit_event, #agenda-wrapper .agenda-event) {
+      background-color: var(--uwd-raised) !important;
+      color: var(--uwd-text) !important;
+      border-color: var(--uwd-line) !important;
+    }
+    .context-list-toggle-box { outline: 1px solid var(--uwd-control); }
+
+    /* Canvas default rich content styling. Authored colors and media keep their cascade. */
+    :where(.user_content, .mce-content-body, .message-body) :is(
+      [style*="background-color: rgb(255, 255, 255)" i],
+      [style*="background-color: #ffffff" i],
+      [style*="background-color: #fff;" i],
+      [style*="background-color: white" i],
+      [bgcolor="#ffffff" i],
+      [bgcolor="#fff" i],
+      [bgcolor="white" i]
+    ) {
+      --ic-link-color: #176185;
+      --ic-link-color-darkened-10: #114a66;
+      --ic-link-color-lightened-10: #114a66;
+      --uwd-link: #176185;
+      color: #26282a;
+    }
+    :where(.user_content, .mce-content-body, .message-body) :is(code, kbd, samp, pre):not([style*="background" i]) {
+      background-color: var(--uwd-raised);
+      color: var(--uwd-text);
+      border-color: var(--uwd-line);
+    }
+    :where(.user_content, .mce-content-body, .message-body) blockquote {
+      color: inherit;
+      border-color: var(--uwd-control);
+    }
+    :where(.user_content, .mce-content-body, .message-body) mark:not([style]) {
+      background: var(--uwd-warning-bg);
+      color: var(--uwd-warning);
+    }
+  }
+}
